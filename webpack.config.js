@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.min.js',
     chunkFilename: 'chunks/[id]-[chunkhash].chunk.js',
-    publicPath: '/',
+    publicPath: '/memento-mori',
   },
 
   devtool: 'source-map',
@@ -58,6 +58,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
+              publicPath: '/memento-mori',
               name: 'assets/[hash].[ext]',
             },
           },
