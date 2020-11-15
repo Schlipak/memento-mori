@@ -73,6 +73,20 @@
       align-items: baseline;
       width: 100%;
 
+      &::before {
+        content: '\2020';
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        transform: translateY(-50%);
+
+        font-family: 'Old English Text MT', 'Times New Roman', serif;
+        opacity: 0.5;
+
+        user-select: none;
+        pointer-events: none;
+      }
+
       @include mobile {
         flex-direction: column;
         align-items: stretch;

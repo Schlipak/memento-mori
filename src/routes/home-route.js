@@ -34,7 +34,7 @@ export default class HomeRoute extends Route {
             </label>
 
             <label>
-              <span>I want my timer to be</span>
+              <span>I want the timer to be</span>
               <select name="th" required>
                 <option value="b">white on black</option>
                 <option value="w">black on white</option>
