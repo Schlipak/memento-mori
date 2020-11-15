@@ -18,6 +18,8 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
+        { from: path.resolve(__dirname, 'assets/fonts/'), to: 'assets/fonts/' },
+        { from: path.resolve(__dirname, 'assets/img/'), to: 'assets/img/' },
         { from: path.resolve(__dirname, 'index.html') },
         { from: path.resolve(__dirname, 'README.md') },
       ],
