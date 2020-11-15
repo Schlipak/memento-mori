@@ -17,7 +17,10 @@ module.exports = {
 
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: path.resolve(__dirname, 'index.html') }],
+      patterns: [
+        { from: path.resolve(__dirname, 'index.html') },
+        { from: path.resolve(__dirname, 'README.md') },
+      ],
     }),
   ],
 
