@@ -1,0 +1,222 @@
+[data-route='home'] {
+  padding: 80px 40px;
+
+  @include mobile {
+    padding: 40px 16px;
+  }
+
+  h1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: auto;
+
+    text-transform: uppercase;
+    font-size: calc(100vw / 24);
+    font-weight: 500;
+    line-height: 1;
+
+    user-select: none;
+    z-index: 1;
+
+    @include mobile {
+      margin-top: 40px;
+      margin-bottom: 80px;
+
+      font-size: 40px;
+    }
+
+    span {
+      z-index: 10;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 400px;
+      transform: translate(-50%, -50%);
+
+      color: white;
+      opacity: 0.15;
+
+      z-index: -1;
+      pointer-events: none;
+
+      @include mobile {
+        height: 200px;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 80px;
+
+    font-size: 18px;
+
+    @include mobile {
+      margin-top: 40px;
+    }
+
+    label {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: baseline;
+      width: 100%;
+
+      @include mobile {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      & + label {
+        margin-top: 16px;
+      }
+
+      span {
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      input,
+      select {
+        flex-grow: 1;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 6px;
+        height: 6px;
+
+        transform: translateY(calc(-50% - 2px)) rotate(45deg);
+        border-bottom: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+
+        opacity: 0.5;
+
+        pointer-events: none;
+
+        @include mobile {
+          top: unset;
+          bottom: calc(37px / 2);
+          transform: translateY(calc(50% - 2px)) rotate(45deg);
+        }
+      }
+    }
+
+    input,
+    select {
+      position: relative;
+      margin: 0;
+      padding-top: 6px;
+      padding-bottom: 5px;
+      padding-left: 6px;
+      padding-right: 36px;
+
+      font-family: $font-stack-sans;
+      font-size: 18px;
+      line-height: normal;
+
+      color: white;
+      background: black;
+      border: none !important;
+      outline: none !important;
+
+      box-shadow: 0 0 0 0 white;
+      transition: box-shadow 0.4s ease-in-out;
+
+      @include mobile {
+        padding-left: 0;
+        height: 37px;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 1px white;
+      }
+    }
+
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 100px;
+
+      button[type='submit'] {
+        position: relative;
+        padding: 10px 64px;
+        padding-top: 12px;
+
+        color: white;
+        background-color: black;
+        border: 3px solid white;
+        outline: none;
+
+        font-family: $font-stack-sans;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 32px;
+        font-weight: 500;
+        line-height: normal;
+
+        user-select: none;
+        cursor: pointer;
+
+        ::-moz-focus-inner {
+          border: 0 !important;
+        }
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          transform-origin: bottom;
+          transform: scaleY(0);
+          transition: transform 0.4s ease-in-out;
+
+          background-color: white;
+          mix-blend-mode: difference;
+
+          pointer-events: none;
+        }
+
+        &:hover,
+        &:focus,
+        &:focus-visible {
+          &::before {
+            transform: scaleY(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.flatpickr-calendar {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}

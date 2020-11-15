@@ -1,0 +1,58 @@
+[data-route='timer'] {
+  @include fullscreen {
+    cursor: none;
+  }
+
+  &[data-theme='w'] {
+    background-color: white;
+  }
+
+  &[data-theme='st'] {
+    background: linear-gradient(to right, black 50%, white 50%);
+  }
+
+  &[data-theme='sl'] {
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+
+  section {
+    mix-blend-mode: difference;
+
+    h1 {
+      margin: 0;
+
+      text-transform: uppercase;
+      font-size: calc(100vw / 12);
+      font-weight: 500;
+
+      user-select: none;
+
+      @include mobile {
+        font-size: calc(100vmin / 8);
+      }
+    }
+
+    a.back {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+
+      text-decoration: none;
+      color: white;
+      opacity: 0.5;
+
+      @include fullscreen {
+        opacity: 0 !important;
+      }
+    }
+  }
+}

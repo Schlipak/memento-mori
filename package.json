@@ -1,0 +1,49 @@
+{
+  "name": "memento-mori",
+  "version": "1.0.0",
+  "description": "Tempus fugit, hora volant",
+  "main": "index.js",
+  "author": "Guillaume `Schlipak` de Matos",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "sass": "node-sass stylesheets/index.scss dist/style.css --include-path ./stylesheets/environments/production --include-path ./node_modules --output-style compressed",
+    "watch-sass": "node-sass -w stylesheets/index.scss dist/style.css --include-path ./stylesheets/environments/development --include-path ./node_modules --output-style nested --source-map true",
+    "js": "webpack --mode production",
+    "watch-js": "webpack --watch --mode development",
+    "serve": "serve dist/",
+    "watch": "rm -rf dist/ && mkdir -p dist/ && concurrently 'npm:watch-sass' 'npm:watch-js' 'npm:serve'",
+    "build": "rm -rf dist/ && mkdir -p dist/ && concurrently 'npm:sass' 'npm:js'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.1",
+    "concurrently": "^5.3.0",
+    "copy-webpack-plugin": "^6.3.1",
+    "eslint": "^7.13.0",
+    "file-loader": "^6.2.0",
+    "gh-pages": "^3.1.0",
+    "glsl-shader-loader": "^0.1.6",
+    "node-sass": "^5.0.0",
+    "raw-loader": "^4.0.2",
+    "serve": "^11.3.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.6",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.escape": "^4.0.1",
+    "lodash.isplainobject": "^4.0.6",
+    "navigo": "^7.1.2",
+    "qs": "^6.9.4",
+    "regl": "^2.0.1",
+    "stimulus": "^1.1.1"
+  }
+}
